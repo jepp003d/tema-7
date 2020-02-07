@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        .firkant {
+            height: 200px;
+            width: 200px;
+            line-height: 100px;
+            text-align: center;
+            background-color: green;
+        }
+
+        .cirkel {
+            height: 200px;
+            width: 200px;
+            line-height: 100px;
+            text-align: center;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="firkant"></div>
+    <div class="cirkel"></div>
+
+
+
+    <script>
+        //        document.querySelector(".firkant").textContent = "grøn firkant";
+        //        document.querySelector(".cirkel").textContent = "rød cirkel";
+
+        let pig = `http://mabe-kea.dk/E19/pics/pig.png`;
+        let frog = `http://mabe-kea.dk/E19/pics/frog.png`;
+        let foxUrl = `http://mabe-kea.dk/E19/pics/fox.png`;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            document.querySelector(".firkant").innerHTML = `<img src= ${pig}>`;
+            document.querySelector(".cirkel").innerHTML = `<img src= ${frog}>`;
+            document.querySelector(".cirkel").innerHTML += `<img src= ${foxUrl}>`;
+        }
+
+    </script>
+
+</body>
+
+</html>

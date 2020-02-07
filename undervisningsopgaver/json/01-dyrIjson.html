@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            max-width: 1000px;
+            margin: 0 auto;
+            grid-gap: 10px;
+
+        }
+
+        article {
+            padding: 10px;
+        }
+
+        article:nth-child(even) {
+            background-color: aquamarine;
+        }
+
+        article:nth-child(1) {
+
+            border-radius: 50px;
+        }
+
+    </style>
+
+
+    <section class="data-container"></section>
+
+    <template>
+        <article class="dyr">
+            <h3></h3>
+            <img src="">
+            <p id="type"></p>
+            <p id="levested"></p>
+
+        </article>
+    </template>
+
+    <script>
+        let dyr = [];
+
+        document.addEventListener("DOMContentLoaded", start);
+
+
+
+        function start() {
+            hentData();
+        }
+
+        async function hentData() {
+            const response = await fetch("alleDyr.json");
+            console.log(response);
+            dyr = await response.json();
+            visDyr();
+        }
+
+
+        function visDyr() {
+
+
+            const container = document.querySelector(".data-container");
+            const dyrTemplate = document.querySelector("template");
+
+            dyr.forEach(dy => {
+                let klon = dyrTemplate.cloneNode(true).content;
+                klon.querySelector("h3").textContent = dy.navn;
+                klon.querySelector("img").src = dy.billede;
+                klon.querySelector("#type").textContent = dy.type;
+                klon.querySelector("#levested").textContent = dy.levested;
+                //                klon.style.border = "1px solid black";
+                klon.querySelector("article").style.border = "1px solid black";
+                container.appendChild(klon);
+
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>

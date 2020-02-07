@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+    <article>
+        <h3></h3>
+        <img src="">
+        <p>Type:</p>
+        <p>Levested:</p>
+
+    </article>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        function start() {
+
+
+            //Dett er flere objekter i en variabel
+            const dyr = {
+
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+                "levested": "svinefarme"
+            }
+            console.log(dyr);
+
+            const info = document.querySelector("article");
+
+
+
+            info.querySelector("h3") textContent = `dyr: ${dyr.navn}`;
+            info.querySelector("img").src = dyr.billede $ {
+                dyr.type
+            }
+            levested: $ {
+                dyr.levested
+            }
+            `;
+
+
+        }
+
+    </script>
+</body>
+
+</html>
