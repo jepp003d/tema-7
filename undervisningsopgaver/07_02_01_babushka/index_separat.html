@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Erica+One|Monoton|Righteous|Roboto+Slab:400,500,600,700,800,900|Teko:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Erica+One|Monoton|Righteous|Roboto|Roboto+Slab:400,500,600,700,800,900|Teko:300,400,500,600,700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -117,10 +117,23 @@
             /*            letter-spacing: 0.5px;*/
         }
 
+        h4 {
+            background-color: #ffe9b7;
+            color: black;
+            font-family: 'Roboto Slab';
+            text-align: center;
+            margin: 0;
+            font-size: 2.5rem;
+
+
+        }
+
         p {
             padding: 10px;
             color: #ffe9b7;
             font-size: 1.3rem;
+            margin: 0;
+            font-family: 'Roboto';
         }
 
 
@@ -159,19 +172,31 @@
             color: #D0AD87;
             border: 5px solid #ffe9b7;
             cursor: pointer;
-            width: 50vw;
+            width: 90vw;
             margin: 0 auto;
             margin-bottom: 40px;
             margin-top: 40px;
 
 
 
+
+        }
+
+        #madvare button {
+            position: absolute;
+            color: black;
         }
 
         #detalje img {}
 
         .skjul {
             display: none;
+        }
+
+        #grid_pop_up {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 20px;
         }
     </style>
 
@@ -221,12 +246,16 @@
 
             <article id="madvare">
                 <button>X</button>
-                <h2>NAVN</h2>
-                <img src="">
-                <p id="detalje_id"></p>
-                <p id="detalje_kategori"></p>
-                <p id="detalje_lang"></p>
-                <p id="detalje_pris"></p>
+                <h4>NAVN</h4>
+                <section id="grid_pop_up">
+                    <img src="">
+                    <div>
+                        <p id="detalje_id"></p>
+                        <p id="detalje_kategori"></p>
+                        <p id="detalje_lang"></p>
+                        <p id="detalje_pris"></p>
+                    </div>
+                </section>
             </article>
         </section>
 
@@ -284,7 +313,7 @@
 
             detalje.classList.remove("skjul");
             detalje.querySelector("button").addEventListener("click", () => detalje.classList.add("skjul"));
-            detalje.querySelector("h2").textContent = madvare.gsx$navn.$t;
+            detalje.querySelector("h4").textContent = madvare.gsx$navn.$t;
             detalje.querySelector("img").src = `imgs/large/${madvare.gsx$billede.$t}.jpg`;
             detalje.querySelector("#detalje_id").textContent = `ID: ${ madvare.gsx$id.$t}`;
             detalje.querySelector("#detalje_kategori").textContent = `Kategori: ${ madvare.gsx$kategori.$t}`;

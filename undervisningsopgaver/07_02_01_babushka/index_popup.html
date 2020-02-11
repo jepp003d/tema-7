@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Erica+One|Monoton|Righteous|Roboto|Roboto+Slab:400,500,600,700,800,900|Teko:300,400,500,600,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <style>
+        body {
+            /*            background-color: #141414;*/
+            background-color: #262626;
+            margin: 0;
+
+        }
+
+        .valgt {
+            background-color: #c63f3f;
+        }
+
+        main {}
+
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 0px 0px 40px 0px;
+            /*            position: fixed;*/
+            position: sticky;
+
+            top: 0vw;
+            left: 0;
+            background-color: #262626;
+            /*            background-color: #ffe9b7;*/
+            width: 100vw;
+
+
+
+
+
+
+
+
+        }
+
+        button {
+            margin: 10px;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            /*            background-color: #ffe9b7;*/
+            color: #ffe9b7;
+            border-radius: 1px;
+
+
+        }
+
+
+        .data-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            max-width: 1600px;
+            margin: 0 auto;
+            grid-gap: 40px;
+
+
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .data-container article {
+
+            /*            background-color: #000000;*/
+            background-color: #c63f3f;
+            color: #D0AD87;
+            border: 5px solid #ffe9b7;
+            cursor: pointer;
+
+        }
+
+        h1 {
+
+            color: #ffe9b7;
+            text-align: center;
+            font-size: 6rem;
+            font-family: 'Monoton';
+            font-weight: 500;
+            margin: 150px 0px 30px 0px;
+        }
+
+        h2 {
+            color: #ffe9b7;
+            text-align: center;
+            font-size: 3.5rem;
+            font-family: 'Monoton';
+            font-weight: 500;
+            padding: 0px 5px 0px 5px;
+
+        }
+
+        h3 {
+            background-color: #ffe9b7;
+            color: #292929;
+            text-align: center;
+            margin: 0px;
+            padding-bottom: 10px;
+            font-family: 'Roboto Slab';
+            font-weight: 300;
+            font-size: 1.5rem;
+            /*            letter-spacing: 0.5px;*/
+        }
+
+        h4 {
+            background-color: #ffe9b7;
+            color: black;
+            font-family: 'Roboto Slab';
+            text-align: center;
+            margin: 0;
+            font-size: 2.5rem;
+
+
+        }
+
+        p {
+            padding: 10px;
+            color: #ffe9b7;
+            font-size: 1.3rem;
+            margin: 0;
+            font-family: 'Roboto';
+        }
+
+
+        #parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .streg {
+            width: 100px;
+            height: 2px;
+            background-color: transparent;
+            border: 2px solid #ffe9b7;
+            position: relative;
+
+
+        }
+
+        #detalje {
+
+
+            top: 0;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(144, 144, 144, 0.9);
+            overflow: scroll;
+
+
+
+        }
+
+        #madvare {
+            background-color: #c63f3f;
+            color: #D0AD87;
+            border: 5px solid #ffe9b7;
+            cursor: pointer;
+            width: 90vw;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            margin-top: 40px;
+
+
+
+
+        }
+
+        #madvare button {
+            position: absolute;
+            color: black;
+        }
+
+        #detalje img {}
+
+        .skjul {
+            display: none;
+        }
+
+        #grid_pop_up {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 20px;
+        }
+    </style>
+
+
+
+    <main>
+
+
+
+        <h1>Bistro Babushka</h1>
+
+        <div id="parent">
+            <div class="streg"></div>
+            <h2>MENU</h2>
+            <div class="streg"></div>
+        </div>
+
+        <nav>
+            <button class="filter valgt" data-kategori="alle">Alle</button>
+            <button class="filter" data-kategori="forretter">Forretter</button>
+            <button class="filter" data-kategori="hovedretter">Hovedretter</button>
+            <button class="filter" data-kategori="desserter">Desserter</button>
+            <button class="filter" data-kategori="sideorders">Side orders</button>
+            <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+        </nav>
+
+
+        <section class="data-container"></section>
+
+        <template>
+            <article class="madvare">
+                <h3></h3>
+                <img src="">
+
+                <p id="id"></p>
+                <p id="kategori"></p>
+                <p id="kort"></p>
+                <p id="pris"></p>
+
+
+            </article>
+        </template>
+
+
+
+        <section id="detalje" class="skjul">
+
+            <article id="madvare">
+                <button>X</button>
+                <h4>NAVN</h4>
+                <section id="grid_pop_up">
+                    <img src="">
+                    <div>
+                        <p id="detalje_id"></p>
+                        <p id="detalje_kategori"></p>
+                        <p id="detalje_lang"></p>
+                        <p id="detalje_pris"></p>
+                    </div>
+                </section>
+            </article>
+        </section>
+
+    </main>
+    <script>
+        const endpoint = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json";
+        let madvarer = [];
+        let filter = "alle";
+        const detalje = document.querySelector("#detalje");
+        const container = document.querySelector(".data-container");
+        const dyrTemplate = document.querySelector("template");
+
+        document.addEventListener("DOMContentLoaded", start);
+
+
+
+        function start() {
+            hentData();
+            addEventListenersToButtons();
+        }
+
+        async function hentData() {
+            const response = await fetch(endpoint);
+            console.log(response);
+            madvarer = await response.json();
+            visMadvarer();
+            //            console.log(personer);
+        }
+
+
+        function visMadvarer() {
+
+
+
+            container.innerHTML = "";
+            madvarer.feed.entry.forEach(madvare => {
+                if (filter == "alle" || filter == madvare.gsx$kategori.$t) {
+                    let klon = dyrTemplate.cloneNode(true).content;
+                    klon.querySelector("h3").textContent = madvare.gsx$navn.$t;
+                    klon.querySelector("img").src = `imgs/small/${madvare.gsx$billede.$t}-sm.jpg`;
+                    klon.querySelector("#id").textContent = `ID: ${ madvare.gsx$id.$t}`;
+                    klon.querySelector("#kategori").textContent = `Kategori: ${ madvare.gsx$kategori.$t}`;
+                    klon.querySelector("#kort").textContent = `Beskrivelse: ${ madvare.gsx$kort.$t}`;
+                    klon.querySelector("#pris").textContent = `Pris: ${ madvare.gsx$pris.$t}`;
+                    klon.querySelector(".madvare").addEventListener("click", () => visDetalje(madvare));
+
+                    container.appendChild(klon);
+                }
+            })
+
+        }
+
+        function visDetalje(madvare) {
+            console.log(madvare.gsx$navn.$t, "uygtiuytiytiu", detalje.classList);
+
+            detalje.classList.remove("skjul");
+            detalje.querySelector("button").addEventListener("click", () => detalje.classList.add("skjul"));
+            detalje.querySelector("h4").textContent = madvare.gsx$navn.$t;
+            detalje.querySelector("img").src = `imgs/large/${madvare.gsx$billede.$t}.jpg`;
+            detalje.querySelector("#detalje_id").textContent = `ID: ${ madvare.gsx$id.$t}`;
+            detalje.querySelector("#detalje_kategori").textContent = `Kategori: ${ madvare.gsx$kategori.$t}`;
+            detalje.querySelector("#detalje_lang").textContent = `Beskrivelse: ${ madvare.gsx$lang.$t}`;
+            detalje.querySelector("#detalje_pris").textContent = `Pris: ${ madvare.gsx$pris.$t}`;
+
+
+        }
+
+        function addEventListenersToButtons() {
+
+            console.log("eventlistener");
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtering);
+
+            })
+
+        }
+
+        function filtering() {
+            console.log("FILTER");
+
+            filter = this.dataset.kategori;
+
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+
+
+            })
+            this.classList.add("valgt");
+
+
+            visMadvarer();
+        }
+    </script>
+</body></html>
