@@ -14,7 +14,6 @@
         body {
             /*            background-color: #141414;*/
             background-color: #262626;
-            margin: 0;
 
         }
 
@@ -76,7 +75,7 @@
             width: 100%;
         }
 
-        .data-container article {
+        article {
 
             /*            background-color: #000000;*/
             background-color: #c63f3f;
@@ -141,38 +140,19 @@
         }
 
         #detalje {
-
-
+            left: 0;
             top: 0;
             position: fixed;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(144, 144, 144, 0.9);
-            overflow: scroll;
-
-
+            background-color: rgba(0, 0, 0, .8);
 
         }
-
-        #madvare {
-            background-color: #c63f3f;
-            color: #D0AD87;
-            border: 5px solid #ffe9b7;
-            cursor: pointer;
-            width: 50vw;
-            margin: 0 auto;
-            margin-bottom: 40px;
-            margin-top: 40px;
-
-
-
-        }
-
-        #detalje img {}
 
         .skjul {
             display: none;
         }
+
     </style>
 
 
@@ -218,15 +198,11 @@
 
 
         <section id="detalje" class="skjul">
-
-            <article id="madvare">
-                <button>X</button>
-                <h2>NAVN</h2>
+            <button>X</button>
+            <article class="madvare">
+                <h1>NAVN</h1>
                 <img src="">
-                <p id="detalje_id"></p>
-                <p id="detalje_kategori"></p>
-                <p id="detalje_lang"></p>
-                <p id="detalje_pris"></p>
+                <p>ALDER</p>
             </article>
         </section>
 
@@ -284,12 +260,7 @@
 
             detalje.classList.remove("skjul");
             detalje.querySelector("button").addEventListener("click", () => detalje.classList.add("skjul"));
-            detalje.querySelector("h2").textContent = madvare.gsx$navn.$t;
-            detalje.querySelector("img").src = `imgs/large/${madvare.gsx$billede.$t}.jpg`;
-            detalje.querySelector("#detalje_id").textContent = `ID: ${ madvare.gsx$id.$t}`;
-            detalje.querySelector("#detalje_kategori").textContent = `Kategori: ${ madvare.gsx$kategori.$t}`;
-            detalje.querySelector("#detalje_lang").textContent = `Beskrivelse: ${ madvare.gsx$lang.$t}`;
-            detalje.querySelector("#detalje_pris").textContent = `Pris: ${ madvare.gsx$pris.$t}`;
+
 
 
         }
@@ -319,5 +290,8 @@
 
             visMadvarer();
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
