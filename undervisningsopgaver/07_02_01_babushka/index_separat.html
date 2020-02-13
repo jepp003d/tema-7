@@ -19,7 +19,11 @@
         }
 
         .valgt {
-            background-color: #c63f3f;
+            /*                        background-color: #c63f3f;*/
+            transform: scale(1.2);
+            background: rgb(198, 63, 63);
+            background: linear-gradient(180deg, rgba(198, 63, 63, 1) 0%, rgba(80, 8, 8, 1) 100%);
+
         }
 
         main {}
@@ -242,29 +246,14 @@
 
 
 
-        <section id="detalje" class="skjul">
 
-            <article id="madvare">
-                <button>X</button>
-                <h4>NAVN</h4>
-                <section id="grid_pop_up">
-                    <img src="">
-                    <div>
-                        <p id="detalje_id"></p>
-                        <p id="detalje_kategori"></p>
-                        <p id="detalje_lang"></p>
-                        <p id="detalje_pris"></p>
-                    </div>
-                </section>
-            </article>
-        </section>
 
     </main>
     <script>
         const endpoint = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json";
         let madvarer = [];
         let filter = "alle";
-        const detalje = document.querySelector("#detalje");
+
         const container = document.querySelector(".data-container");
         const dyrTemplate = document.querySelector("template");
 
@@ -300,7 +289,9 @@
                     klon.querySelector("#kategori").textContent = `Kategori: ${ madvare.gsx$kategori.$t}`;
                     klon.querySelector("#kort").textContent = `Beskrivelse: ${ madvare.gsx$kort.$t}`;
                     klon.querySelector("#pris").textContent = `Pris: ${ madvare.gsx$pris.$t}`;
-                    klon.querySelector(".madvare").addEventListener("click", () => visDetalje(madvare));
+                    klon.querySelector(".madvare").addEventListener("click", () => {
+                        location.href = "babushka_detalje.html?id=" + madvare.gsx$id.$t;
+                    });
 
                     container.appendChild(klon);
                 }
@@ -308,20 +299,7 @@
 
         }
 
-        function visDetalje(madvare) {
-            console.log(madvare.gsx$navn.$t, "uygtiuytiytiu", detalje.classList);
 
-            detalje.classList.remove("skjul");
-            detalje.querySelector("button").addEventListener("click", () => detalje.classList.add("skjul"));
-            detalje.querySelector("h4").textContent = madvare.gsx$navn.$t;
-            detalje.querySelector("img").src = `imgs/large/${madvare.gsx$billede.$t}.jpg`;
-            detalje.querySelector("#detalje_id").textContent = `ID: ${ madvare.gsx$id.$t}`;
-            detalje.querySelector("#detalje_kategori").textContent = `Kategori: ${ madvare.gsx$kategori.$t}`;
-            detalje.querySelector("#detalje_lang").textContent = `Beskrivelse: ${ madvare.gsx$lang.$t}`;
-            detalje.querySelector("#detalje_pris").textContent = `Pris: ${ madvare.gsx$pris.$t}`;
-
-
-        }
 
         function addEventListenersToButtons() {
 
